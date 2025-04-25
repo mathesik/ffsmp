@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-gray-800 antialiased;
+  }
+}
+
+@layer components {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .logo-hover {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .logo-hover:hover {
+    transform: rotate(15deg);
+  }
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@font-face {
+  font-family: 'VCR OSD Mono';
+  src: url('https://cdn.jsdelivr.net/npm/@fontsource/vcr-osd-mono@4.5.1/files/vcr-osd-mono-latin-400-normal.woff2') format('woff2');
+}
+
+.font-vcr {
+  font-family: 'VCR OSD Mono', monospace;
+}

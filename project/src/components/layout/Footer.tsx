@@ -1,0 +1,69 @@
+import React from 'react';
+import { NAV_ITEMS } from '../../utils/constants';
+import { Github, Twitter, Disc as Discord } from 'lucide-react';
+
+const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-gray-900 text-white pt-16 pb-6">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <h3 className="text-2xl font-poppins font-bold mb-4">
+              <span className="text-green-500">FF</span>SMP
+            </h3>
+            <p className="font-montserrat text-gray-400 mb-4">
+              Serwer Minecraft stworzony dla przyjaciół i rodziny. Dołącz do nas i twórz niesamowitą społeczność!
+            </p>
+            <div className="flex space-x-4">
+              <a href="https://discord.gg/rjyuShRJ" className="text-gray-400 hover:text-green-500 transition-colors duration-300">
+                <Discord size={24} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-green-500 transition-colors duration-300">
+                <Twitter size={24} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-green-500 transition-colors duration-300">
+                <Github size={24} />
+              </a>
+            </div>
+          </div>
+          
+          <div>
+            <h3 className="text-lg font-poppins font-semibold mb-4">Szybkie Linki</h3>
+            <ul className="space-y-2">
+              {NAV_ITEMS.map((item) => (
+                <li key={item.href}>
+                  <a 
+                    href={item.href}
+                    className="font-montserrat text-gray-400 hover:text-green-500 transition-colors duration-300"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="text-lg font-poppins font-semibold mb-4">Informacje o Serwerze</h3>
+            <ul className="space-y-2 font-montserrat text-gray-400">
+              <li>IP: <span className="text-green-500 font-semibold">ffsmp.pl</span></li>
+              <li>Wersja: 1.21.1</li>
+              <li>Discord: <a href="https://discord.gg/rjyuShRJ" className="text-green-500 hover:underline">Dołącz do serwera</a></li>
+              <li>Email: <a href="mailto:contact@ffsmp.pl" className="text-green-500 hover:underline">contact@ffsmp.pl</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="border-t border-gray-800 pt-6 text-center">
+          <p className="font-montserrat text-gray-500 text-sm">
+            &copy; {currentYear} FFSMP. Wszelkie prawa zastrzeżone. Niezwiązane z Mojang.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
